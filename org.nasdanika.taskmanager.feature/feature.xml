@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.nasdanika.taskmanager.feature"
+      label="Task Manager UI Tests feature"
+      version="1.0.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.nasdanika.equinox.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="org.nasdanika.webtest.feature"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.taskmanager.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.taskmanager.ui.driver.actors"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.taskmanager.ui.driver.pages"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.taskmanager.ui.driver.actors.impl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.nasdanika.taskmanager.ui.driver.pages.impl"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+	
+	   <feature url="features/org.nasdanika.taskmanager.feature_1.0.0.qualifier.jar" id="org.nasdanika.taskmanager.feature" version="1.0.0.qualifier">
+	      <category name="org.nasdanika.taskmanager.category"/>
+	   </feature>
+   <category-def name="org.nasdanika.taskmanager.category" label="Task Manager UI Tests">
+      <description>
+         org.nasdanika.taskmanager.
+      </description>
+   </category-def>
+</site>
