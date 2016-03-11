@@ -10,6 +10,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 import org.nasdanika.taskmanager.ui.driver.actors.TaskManagerActor;
 import org.nasdanika.taskmanager.ui.driver.actors.TaskManagerActorFactory;
+import org.nasdanika.taskmanager.ui.driver.pages.TaskStatus;
 import org.nasdanika.taskmanager.ui.driver.pages.Theme;
 import org.nasdanika.webtest.ActorFactory;
 import org.nasdanika.webtest.Description;
@@ -50,31 +51,31 @@ public class TaskManagerTest implements WebTest<WebDriver> {
 	}
 	
 	@Test
-	@Pending
 	@Screenshot({Screenshot.When.AFTER, Screenshot.When.EXCEPTION})
 	public void testCreateTask() throws Exception {
 		TaskManagerActor actor = actorFactory.createTaskManagerActor(getWebDriver());
+		actor.createTask("Some rather important task!", TaskStatus.IN_PROGRESS);
 	}
 	
 	@Test
-	@Pending
 	@Screenshot({Screenshot.When.AFTER, Screenshot.When.EXCEPTION})
 	public void testDeleteTask() throws Exception {
 		TaskManagerActor actor = actorFactory.createTaskManagerActor(getWebDriver());
+		actor.deleteTask(3);
 	}
 	
 	@Test
-	@Pending
 	@Screenshot({Screenshot.When.AFTER, Screenshot.When.EXCEPTION})
 	public void testEditTask() throws Exception {
 		TaskManagerActor actor = actorFactory.createTaskManagerActor(getWebDriver());
+		actor.updateTask(4, "New description", TaskStatus.IN_PROGRESS);
 	}
 		
 	@Test
-	@Pending
 	@Screenshot({Screenshot.When.AFTER, Screenshot.When.EXCEPTION})
 	public void testSetTaskStatus() throws Exception {
 		TaskManagerActor actor = actorFactory.createTaskManagerActor(getWebDriver());
+		actor.setTaskStatus(2, TaskStatus.COMPLETED);
 	}
 	
 	@After
@@ -87,7 +88,7 @@ public class TaskManagerTest implements WebTest<WebDriver> {
 
 	@Override
 	public long getScreenshotDelay() {
-		return 0;
+		return 250;
 	}
 	
 }

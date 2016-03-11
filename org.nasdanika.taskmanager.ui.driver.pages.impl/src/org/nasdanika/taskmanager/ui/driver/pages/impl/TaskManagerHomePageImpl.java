@@ -1,5 +1,6 @@
 package org.nasdanika.taskmanager.ui.driver.pages.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.nasdanika.taskmanager.ui.driver.pages.TaskEditDialog;
@@ -24,11 +25,17 @@ public class TaskManagerHomePageImpl extends ReflectivePageBase<WebDriver> imple
 	private TaskManagerPageFactoryImpl factory;
 	private WebDriver webDriver;
 	
+	@FindBy(css=NEW_TASK_BUTTON_CSS_SELECTOR)
+	private WebElement newTaskButton;
+	
 	@FindBy(css="body > div > div.panel-heading > h3 > div > span > span")
 	private WebElement themeToggle;
 	
 	@FindBy(css="body > div > div.panel-heading > h3 > div > span > ul")
 	private WebElement themeDropDown;
+	
+	@FindBy(css="#content-panel > table > tbody")
+	private WebElement taskTableBody;
 	
 	private WebDriverWait webDriverWait;
 
@@ -57,17 +64,26 @@ public class TaskManagerHomePageImpl extends ReflectivePageBase<WebDriver> imple
 		WebTestUtil.takeScreenshot("Theme selected");
 		return WebTestUtil.initElements(webDriver, TaskManagerHomePageImpl.class);
 	}
-
+	
 	@Override
 	public List<TaskRow> getTaskRows() {
-		// TODO Auto-generated method stub
-		return null;
+		List<TaskRow> ret = new ArrayList<>();
+		int idx = 0;
+		for (WebElement row: taskTableBody.findElements(By.cssSelector("tr"))) {
+			ret.add(new TaskRowImpl(webDriver, webDriverWait, ++idx, row));			
+		}
+		return ret;
 	}
 
 	@Override
 	public TaskEditDialog newTask() {
-		// TODO Auto-generated method stub
-		return null;
+		newTaskButton.click();
+		return WebTestUtil.initElements(webDriver, TaskEditDialogImpl.class, "New Task Dialog");
+	}
+
+	@Override
+	public String getAlias() {
+		return "Home Page";
 	}
 
 }
